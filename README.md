@@ -3,9 +3,9 @@
 # Evaluación Práctica - Ingeniería de Software V
 
 ## Información del Estudiante
-- **Nombre:**
-- **Código:**
-- **Fecha:**
+- **Nombre: Gabriel Escobar**
+- **Código: A00399291**
+- **Fecha: 08/06/2025**
 
 ## Resumen de la Solución
 [Breve descripción de tu implementación]
