@@ -39,12 +39,16 @@ sleep 3
 # Probar si el servicio responde
 echo "Probando si el servicio responde en http://localhost:$PORT/..."
 
-if curl --fail --silent http://localhost:$PORT/ > /dev/null; then
+RESPONSE=$(curl --fail --silent http://localhost:$PORT/)
+if [ $? -eq 0 ]; then
   echo "Servicio activo y respondiendo correctamente en el puerto $PORT."
+  echo "Respuesta del servicio:"
+  echo "$RESPONSE"
   exit 0
 else
   echo "El servicio no respondió. Verifica los logs del contenedor:"
   docker logs $CONTAINER_NAME
   exit 1
 fi
+
 

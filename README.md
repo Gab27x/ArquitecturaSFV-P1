@@ -81,8 +81,11 @@ sleep 3
 # Probar si el servicio responde
 echo "Probando si el servicio responde en http://localhost:$PORT/..."
 
-if curl --fail --silent http://localhost:$PORT/ > /dev/null; then
+RESPONSE=$(curl --fail --silent http://localhost:$PORT/)
+if [ $? -eq 0 ]; then
   echo "Servicio activo y respondiendo correctamente en el puerto $PORT."
+  echo "Respuesta del servicio:"
+  echo "$RESPONSE"
   exit 0
 else
   echo "El servicio no respondió. Verifica los logs del contenedor:"
@@ -90,9 +93,10 @@ else
   exit 1
 fi
 
+
 ```
 
-
+![alt text](image-1.png)
 ## Principios DevOps Aplicados
 ###  1. Collaboration
 El uso de contenedores facilita la colaboración entre desarrolladores, testers y operaciones, ya que todos trabajan con el mismo entorno aislado y replicable.
